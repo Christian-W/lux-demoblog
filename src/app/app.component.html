@@ -1,0 +1,26 @@
+<div class="lux-app-container">
+  <lux-app-header luxAppTitle="An example LUX blog" luxAppTitleShort="LUX"
+                  luxUserName="Test">
+    <lux-side-nav>
+      <lux-side-nav-header>
+        <h3>Willkommen!</h3>
+      </lux-side-nav-header>
+      <lux-side-nav-item luxLabel="Home" luxTagId="project-side-nav-item" luxIconName="fa-home"
+                         (luxClicked)="router.navigate(['/'])">
+      </lux-side-nav-item>
+      <lux-side-nav-item luxLabel="Mein Blog" luxTagId="project-side-nav-item" luxIconName="fa-user"
+                         (luxClicked)="router.navigate(['/blog'])">
+      </lux-side-nav-item>
+      <lux-side-nav-item luxLabel="Impressum" luxTagId="project-side-nav-item" luxIconName="fa-copyright"
+                         (luxClicked)="router.navigate(['/impressum'])">
+      </lux-side-nav-item>
+      <lux-side-nav-item luxLabel="Datenschutz" luxTagId="project-side-nav-item" luxIconName="fa-tasks"
+                         (luxClicked)="router.navigate(['/datenschutz'])">
+      </lux-side-nav-item>
+    </lux-side-nav>
+  </lux-app-header>
+
+  <lux-app-content class="lux-mt-3"></lux-app-content>
+
+  <lux-app-footer luxVersion="0.1"></lux-app-footer>
+</div>

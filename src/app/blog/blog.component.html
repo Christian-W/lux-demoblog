@@ -1,0 +1,39 @@
+<div fxShow="false" fxShow.gt-xs="true" fxFlex="15%"></div>
+<div fxFill>
+  <lux-master-detail fxFill [luxMasterSpinnerDelay]="500" luxEmptyIconDetail="fas fa-pen" luxEmptyIconMaster="fas fa-pen"
+                     luxEmptyLabelDetail="Kein Detail selektiert!" [luxMasterIsLoading]="masterIsLoading"
+                     luxEmptyLabelMaster="Keine Masterelemente gefunden!" [luxSelectedDetail]="masterSelected"
+                     [(luxMasterList)]="masterItems" (luxSelectedDetailChange)="loadData($event)"
+                     (luxScrolled)="loadFurtherEntries()">
+    <lux-master-header-content>
+    Blogeinträge
+    </lux-master-header-content>
+
+    <lux-master-simple luxTitleProp="title" luxSubTitleProp="subtitle">
+      <!-- Zugriff auf jedes einzelne Master-Element ueber "master" -->
+      <ng-template #luxSimpleIcon let-master>
+        <lux-icon [luxIconName]="master.icon"></lux-icon>
+      </ng-template>
+      <ng-template #luxSimpleContent let-master>
+        {{master.intro}}
+      </ng-template>
+    </lux-master-simple>
+
+    <lux-detail-view>
+      <ng-template let-detail>
+        <lux-card [luxTitle]="detail.title" fxFill>
+          <lux-card-content>
+            {{ detail.content }}
+          </lux-card-content>
+        </lux-card>
+      </ng-template>
+    </lux-detail-view>
+
+    <lux-master-footer>
+      <div>
+        <lux-link luxLabel="Impressum Link" (luxClicked)="router.navigate(['/impressum'])">Impressum</lux-link>
+        <lux-link luxLabel="Datenschutzerklärung" (luxClicked)="router.navigate(['/datenschutz'])">Datenschutz</lux-link>
+      </div>
+    </lux-master-footer>
+  </lux-master-detail>
+</div>
