@@ -37,11 +37,27 @@ export class BlogComponent implements OnInit {
       }
   }
 
+  randomDate(date1, date2){
+    function randomValueBetween(min, max) {
+      return Math.random() * (max - min) + min;
+    }
+    var date1 = date1 || '01-01-1970'
+    var date2 = date2 || new Date().toLocaleDateString()
+    date1 = new Date(date1).getTime()
+    date2 = new Date(date2).getTime()
+    if( date1>date2){
+        return new Date(randomValueBetween(date2,date1)).toLocaleDateString()
+    } else{
+        return new Date(randomValueBetween(date1, date2)).toLocaleDateString()
+
+    }
+}
+
   fillList() {
       for (let i = 10; i > 1; --i) {
         this.masterItems.push({
           id: this.masterItems.length,
-          title: 'Eintrag Nr. ' + this.masterItems.length,
+          title: this.randomDate('01/01/2019', '01/01/2020'),
           icon: 'fa fa-cog',
           content: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Orci sagittis eu volutpat odio facilisis mauris sit. Sapien et ligula ullamcorper malesuada. Nibh tortor id aliquet lectus proin nibh. Pellentesque sit amet porttitor eget. Et ultrices neque ornare aenean euismod elementum. Quam nulla porttitor massa id neque aliquam vestibulum morbi blandit. Nisi est sit amet facilisis magna etiam tempor orci. Id ornare arcu odio ut. Est placerat in egestas erat. Semper risus in hendrerit gravida rutrum quisque non tellus. Elit duis tristique sollicitudin nibh sit amet commodo nulla facilisi. Sed faucibus turpis in eu mi. Tellus at urna condimentum mattis pellentesque id.`,
           intro: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit'
